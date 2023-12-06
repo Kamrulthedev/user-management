@@ -10,13 +10,28 @@ function App() {
       .then(data => setUsers(data))
   }, [])
 
+
+  const handlerAdduser = e =>{
+     e.preventDefault();
+     const form = e.target;
+     const name = form.name.value;
+     const email = form.email.value;
+     const user = {name, email}
+     console.log(user)
+
+  }
+
   return (
     <>
       <h1>User management system</h1>
     <h3>This is User on the:{users.length}</h3>
 
-    <form>
-    
+    <form onSubmit={handlerAdduser}>
+    <input type='text' name='name' id=''/>
+    <br />
+    <input type="text" name='email' id='' />
+    <br />
+  <input type="submit" value='add user' />
 
     </form>
 
